@@ -1,0 +1,40 @@
+wandb:
+  experiment_name: ''
+  project: 'ColourInteract Sweeps Wednesday Night'
+  entity: 'commute_opt_gnn'
+
+data:
+  name: ColourInteract
+  dataset : 'LRGB'
+  num_colours: 4
+  train_size: 1500
+  val_size: 300
+  min_train_nodes: 75
+  max_train_nodes: 125
+  min_val_nodes: 125
+  max_val_nodes: 175
+  rewirers: ["fully_connected_clusters", "unconnected_cayley_clusters", "cayley", "fully_connected"]
+  normalise: False
+  seed: 91
+
+model:
+  hidden_channels: 8
+  num_layers: 5
+  drop_prob: 0.0
+  global_pool_aggr: global_add_pool
+  approaches: ["interleave", "only_original"]
+  seeds: [17, 71, 117]
+  norm: bn
+  
+train:
+  lr: 0.001
+  warmup: 50
+  gamma_decay: 0.95
+  num_epochs: 200
+  print_every: 10
+  train_batch_size: 32
+  val_batch_size: 32
+  loss_fn: "MSE"
+
+run:
+  silent: False

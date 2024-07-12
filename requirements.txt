@@ -1,0 +1,13 @@
+numpy
+networkx
+jupyter
+torch==2.1.0
+einops
+torch-geometric
+matplotlib
+wandb
+easydict
+prettytable
+ogb
+torch-sparse
+torch-scatter

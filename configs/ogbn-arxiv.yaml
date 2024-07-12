@@ -1,0 +1,43 @@
+wandb:
+  project: 'OGBN-ARXIV 12.03'
+  entity: 'commute_opt_gnn'
+
+model:
+  hidden_channels: 128
+  num_layers: 3
+  drop_prob: 0.5
+  rewirers: [
+    # "cayley",
+    # "class_all",
+    # "clas_train_only",
+    # "class_all_fully_connected_clusters",
+    "mlp_all",
+    # "mlp_cs_all",
+    # "knn",
+    # "knn_mlp_feats",
+  ]
+  approaches: [
+    "only_original",
+    "interleave",
+  ] 
+  norm: 'bn'
+  seed: None
+  seeds: [17, 47, 23]
+  
+train:
+  lr: 0.001
+  num_epochs: 200
+  print_every: 10
+  verbose: True
+  log_wandb: True
+  proportion_train_samples_list: [
+    # 0.0001,
+    # 0.001,
+    # 0.01,
+    # 0.1,
+    1.0,
+  ] 
+  as_sparse: True
+
+run:
+  silent: False
